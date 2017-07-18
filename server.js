@@ -11,12 +11,12 @@ const PORT = process.env.PORT || 3000;
 // 'next' is called when this piece of middleware is done
 // set of code that is run for items run through express
 app.use(function (req, res, next) {
-  if (req.headers['x-forwarded-proto'] === 'http') {
-    // means it is using http, so just continue
-    next();
-  } else {
+  if (req.headers['x-forwarded-proto'] === 'https') {
     // using https, so redirect to http version
     res.redirect('http://' + req.hostname +  req.url);
+  } else {
+    // means it is using https, so just continue
+    next();
   }
 });
 
