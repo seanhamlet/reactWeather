@@ -10,7 +10,7 @@ var Weather = React.createClass({
     }
   },
   handleSearch: function (location) {
-    // 'that' variable: simple way to allow access to 'this' 
+    // 'that' variable: simple way to allow access to 'this'
     //    even after entering openWeatherMap.getTemp function where 'this' binding gets lost
     var that = this;
 
@@ -39,7 +39,7 @@ var Weather = React.createClass({
     // use {renderMessage()} (jsx expression) call below in return statement
     function renderMessage () {
       if (isLoading) {
-        return <h3>Fetching weather...</h3>;
+        return <h3 className="text-center">Fetching weather...</h3>;
       } else if (temp && location) {
         return <WeatherMessage location={location} temp={temp}/>;
       }
@@ -47,7 +47,7 @@ var Weather = React.createClass({
 
     return (
       <div>
-        <h3>Weather Component</h3>
+        <h1 className="text-center">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch}/>
         {renderMessage()}
       </div>
